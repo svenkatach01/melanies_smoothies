@@ -25,7 +25,7 @@ st.write('The name on your Smoothie will be :', name_on_order)
 #editable_df = st.data_editor(my_dataframe)
 
 
-my_dataframe = session.table("smoothies.public.fruit_options").select(col("fruit_name"))
+my_dataframe = session.table("smoothies.public.fruit_options").select(col("fruit_name"),col("search_on"))
 #editable_df = st.data_editor(my_dataframe)
 #st.dataframe(data=my_dataframe, use_container_width=True)
 
