@@ -5,7 +5,7 @@ from snowflake.snowpark.functions import col
 
 
 #session = get_active_session()
-cnx = st.connection('snowflake')
+cnx = st.connection("snowflake")
 session = cnx.session()
 # Write directly to the app
 st.title(f":cup_with_straw: Customize Your Smoothie!:cup_with_straw:")
