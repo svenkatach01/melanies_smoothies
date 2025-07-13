@@ -38,7 +38,7 @@ if ingredients_list:
     ingredients_string=''
     for fruit_selected in ingredients_list:
         ingredients_string += fruit_selected + ' '
-        smoothiefroot_response = requests.get(f"https://my.smoothiefroot.com/api/fruit/{fruit_selected}")
+        smoothiefroot_response = requests.get(f"https://my.smoothiefroot.com/api/fruit/"+fruit_selected)
         sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
     st.write(ingredients_string)
     my_insert_string = """
