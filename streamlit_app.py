@@ -1,5 +1,7 @@
 # Import python packages
 import streamlit as st
+import requests
+
 
 from snowflake.snowpark.functions import col
 
@@ -13,6 +15,10 @@ st.write(
     Choose the fruits you want in your custom Smoothie!
   """
 )
+
+smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+st.text(smoothiefroot_response)
+
 
 name_on_order = st.text_input('Name for the order')
 st.write('The name on your Smoothie will be :', name_on_order)
