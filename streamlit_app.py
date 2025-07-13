@@ -23,8 +23,6 @@ st.write('The name on your Smoothie will be :', name_on_order)
 #my_dataframeFruit = session.table("smoothies.public.fruit_options").select(col('search_on'))
 #my_dataframe = session.table("smoothies.public.orders").filter(col("ORDER_FILLED")==0).collect()
 #editable_df = st.data_editor(my_dataframe)
-
-
 my_dataframe = session.table("smoothies.public.fruit_options").select(col("fruit_name"),col("search_on"))
 
 pd_df = my_dataframe.to_pandas()
@@ -44,8 +42,10 @@ if ingredients_list:
         search_on=pd_df.loc[pd_df['FRUIT_NAME'] == fruit_selected, 'SEARCH_ON'].iloc[0]
         st.write('The search value for ', fruit_selected,' is ', search_on, '.')
         st.subheader(fruit_selected + ' Nutrition Information ');
-        smoothiefroot_response = requests.get(f"https://my.smoothiefroot.com/api/fruit/"+search_on)
-        sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
+        #smoothiefroot_response = requests.get(f"https://my.smoothiefroot.com/api/fruit/"+search_on)
+        fruityvice_response = requests.get(f"https://my.smoothiefroot.com/api/fruit/"+search_on)
+        #sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
+        fv_df = st.dataframe(data=fruityvice_response.json(), use_container_width=True)
     st.write(ingredients_string)
     my_insert_string = """
         insert into smoothies.public.orders(ingredients,name_on_order) 
