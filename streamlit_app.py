@@ -20,7 +20,7 @@ st.write(
 
 name_on_order = st.text_input('Name for the order')
 st.write('The name on your Smoothie will be :', name_on_order)
-#my_dataframeFruit = session.table("smoothies.public.fruit_options").select(col('fruit_name'))
+#my_dataframeFruit = session.table("smoothies.public.fruit_options").select(col('search_on'))
 #my_dataframe = session.table("smoothies.public.orders").filter(col("ORDER_FILLED")==0).collect()
 #editable_df = st.data_editor(my_dataframe)
 
